@@ -1,6 +1,6 @@
 const { Car, User } = require("../models");
 const ApiError = require("../utils/apiError");
-const imagekit = require("../services/imagekit");
+const imagekit = require("../lib/imagekit");
 const { Op } = require("sequelize");
 
 const findCars = async (req, res, next) => {

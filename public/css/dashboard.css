@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  background-color: #f4f5f7;
+}
+
+/* Sidebar Page Start */
+.side-nav {
+  background-color: #0d28a6;
+}
+
+.side-list h6 {
+  font-size: 0.875rem;
+}
+
+.side-main-clicked {
+  background-color: #ffffff4d !important;
+}
+
+.side-sub-unclicked {
+  color: #8a8a8a;
+}
+
+.side-sub-clicked {
+  background-color: #cfd4ed;
+}
+
+.sideimg-home {
+  width: 2.125rem;
+}
+
+.nav-img {
+  width: 1.5rem;
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  height: 34px;
+  margin-left: 1rem;
+}
+/* Sidebar Page End */
+
+/* Header Page Start */
+.menu-toogle {
+  height: 30px;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.menu-toogle .bar {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: #222222;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+.search-input {
+  padding-left: calc(1vw + 1rem) !important;
+  background-image: url("../images/search-icon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 1.25rem;
+}
+
+.search-btn {
+  color: #0d28a6 !important;
+  border: 1px solid #0d28a6 !important;
+}
+
+.search-btn:hover {
+  background-color: #0d28a6 !important;
+  color: #fff !important;
+}
+
+.image-user {
+  width: 20%;
+}
+
+.right-header {
+  display: flex;
+  gap: 2rem;
+}
+/* Header Page End */
+
+/* Main Page Start */
+.main-content {
+  background-color: #f4f5f7;
+}
+
+.breadnav {
+  font-size: 0.75rem;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #0d28a6;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-add i {
+  margin-right: 1rem;
+}
+
+.btn-wrapper {
+  bottom: 2rem;
+}
+
+.primary-outline-nonactive {
+  border: #aeb7e1 1px solid !important;
+  color: #aeb7e1 !important;
+  background-color: #cfd4ed !important;
+}
+
+.primary-outline-nonactive.active {
+  border: #0d28a6 1px solid !important;
+  color: #0d28a6 !important;
+  background-color: #cfd4ed !important;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  color: #0d28a6 !important;
+  border: 1px solid #0d28a6 !important;
+}
+
+.cancel-btn:hover {
+  background-color: #0d28a6 !important;
+  color: #fff !important;
+}
+
+.save-btn {
+  color: white;
+  border: 1px solid #0d28a6 !important;
+  background-color: #0d28a6 !important;
+}
+
+.save-btn:hover {
+  background-color: green !important;
+  color: #fff !important;
+  border: 1px solid green !important;
+}
+
+.alert-success {
+  background-color: #73ca5c !important;
+}
+
+.alert-flash {
+  display: none;
+  right: 10%;
+  top: 12%;
+  text-align: center;
+  color: white !important;
+  font-weight: 400 !important;
+  font-size: 1rem;
+  width: 60%;
+}
+
+.alert-flash.show {
+  display: block;
+  opacity: 1;
+}
+
+.card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.card-rent {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.card-update {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+/* Main Page End */

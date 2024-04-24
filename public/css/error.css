@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url(../images/errorBackground.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+}
+
+/* Error Page Start */
+.status_code {
+  font-size: calc(12vw + 2rem);
+  color: rgba(13, 40, 166, 0.7);
+}
+
+.status_info {
+  color: rgba(13, 40, 166, 0.5);
+  font-size: calc(0.5vw + 0.75rem);
+}
+
+.error {
+  height: 100vh;
+}
+
+.back-button {
+  font-size: calc(0.5vw + 0.5rem);
+}
+/* Error Page End */
