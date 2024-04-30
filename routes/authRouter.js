@@ -2,9 +2,10 @@ const router = require("express").Router();
 
 const Authenticate = require("../middlewares/authenticate");
 const Auth = require("../controllers/authController");
+const validateRole = require("../middlewares/validateRoleRegister");
 
-router.get("/", Auth.findAuths);
-router.post("/register", Authenticate, Auth.register);
+router.post("/admin/register", Authenticate, validateRole, Auth.register);
+router.post("/member", validateRole, Auth.registerMember);
 router.post("/login", Auth.login);
 router.get("/me", Authenticate, Auth.authenticate);
 

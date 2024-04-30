@@ -9,12 +9,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      age: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      age: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       city: {
@@ -34,13 +34,15 @@ module.exports = {
         allowNull: false,
       },
       role: {
-        type: Sequelize.ENUM(["Superadmin", "Staff"]),
+        type: Sequelize.ENUM([
+          "Member",
+          "Superadmin",
+          "Admin",
+          "Staff",
+          "Owner",
+        ]),
         allowNull: false,
-        defaultValue: "Staff",
-      },
-      libraryId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+        defaultValue: "Member",
       },
       createdAt: {
         allowNull: false,

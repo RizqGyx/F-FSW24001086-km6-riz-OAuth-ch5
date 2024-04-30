@@ -5,30 +5,31 @@ const Users = require("../controllers/userController");
 const upload = require("../middlewares/uploader");
 const autentikasi = require("../middlewares/authenticate");
 const checkRole = require("../middlewares/checkRole");
+const validateRole = require("../middlewares/validateRoleRegister");
 
 router.get(
   "/",
   autentikasi,
-  checkRole("Manager", "Admin", "Staff"),
+  checkRole("Manager", "Admin", "Staff", "Owner", "Superadmin"),
   Users.findUsers
 );
 router.get(
-  "/:search",
+  "/:id",
   autentikasi,
-  checkRole("Manager", "Admin", "Staff"),
-  Users.findUsersByFilter
-);
-router.get(
-  "/user/:id",
-  autentikasi,
-  checkRole("Manager", "Admin", "Staff"),
+  checkRole("Manager", "Admin", "Staff", "Owner", "Superadmin"),
   Users.findUserById
 );
-router.patch("/edit/:id", autentikasi, Users.updateUser);
-router.delete(
-  "/delete/:id",
+router.patch(
+  "/:id",
   autentikasi,
-  checkRole("Manager", "Admin", "Staff"),
+  validateRole,
+  upload.array("images"),
+  Users.updateUser
+);
+router.delete(
+  "/:id",
+  autentikasi,
+  checkRole("Manager", "Admin", "Staff", "Owner", "Superadmin"),
   Users.deleteUser
 );
 

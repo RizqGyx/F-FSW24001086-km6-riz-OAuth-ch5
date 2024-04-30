@@ -1,76 +1,95 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Cars', {
+    await queryInterface.createTable("Cars", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       plate: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       manufacture: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       model: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       image: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        defaultValue:
+          "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0&h=180",
       },
       rentPerDay: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       capacity: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       description: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       availableAt: {
-        type: Sequelize.DATE
+        allowNull: false,
+        type: Sequelize.DATE,
       },
       transmission: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       available: {
-        type: Sequelize.BOOLEAN
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
       },
       type: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       year: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       options: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       specs: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       createdBy: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       deletedBy: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       lastUpdatedBy: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Cars');
-  }
+    await queryInterface.dropTable("Cars");
+  },
 };

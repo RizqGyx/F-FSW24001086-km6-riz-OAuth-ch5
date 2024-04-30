@@ -91,7 +91,110 @@ const findCarById = async (req, res, next) => {
   }
 };
 
+const updateCar = async (req, res, next) => {
+  const {
+    manufacture,
+    model,
+    image,
+    capacity,
+    transmission,
+    available,
+    type,
+    year,
+    lastUpdatedBy,
+  } = req.query;
+  try {
+    const car = await Car.findByPk(req.params.id);
+
+    if (!car) {
+      return next(new ApiError(`Car with ID ${req.params.id} not found`, 404));
+    }
+
+    await User.update(
+      {
+        manufacture,
+        model,
+        image,
+        capacity,
+        transmission,
+        available,
+        type,
+        year,
+        lastUpdatedBy,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    const updatedCar = await Car.findByPk(req.params.id);
+
+    res.status(200).json({
+      status: "Success",
+      message: "Car updated successful",
+      updatedCar,
+    });
+  } catch (err) {
+    next(new ApiError(err.message, 400));
+  }
+};
+
+const deleteCar = async (req, res, next) => {
+  try {
+    const car = await Car.findByPk(req.params.id);
+
+    if (!car) {
+      next(new ApiError(`Car with ID ${req.params.id} not found`, 404));
+    }
+
+    await Car.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    res.status(200).json({
+      status: "Success",
+      message: "Successfully deleted car",
+    });
+  } catch (err) {
+    next(new ApiError(err.message, 400));
+  }
+};
+
+const createCar = async (req, res, next) => {
+  try {
+    const currentDate = new Date();
+    const returnDate = new Date(currentDate);
+    returnDate.setDate(returnDate.getDate() + 3);
+
+    const capitalized =
+      req.body.status.charAt(0).toUpperCase() + req.body.status.slice(1);
+
+    const transaction = await Transaction.create({
+      ...req.body,
+      borrowDate: currentDate,
+      returnDate: returnDate,
+      status: capitalized,
+    });
+
+    res.status(201).json({
+      status: "Success",
+      data: {
+        transaction,
+      },
+    });
+  } catch (err) {
+    next(new ApiError(err.message, 400));
+  }
+};
+
 module.exports = {
   findCars,
   findCarById,
+  updateCar,
+  deleteCar,
+  createCar,
 };
